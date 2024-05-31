@@ -36,7 +36,7 @@ async def chat(app :app, message):
 
 
 
-@app.on_message(filters.command(["jaanu"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
+@app.on_message(filters.command(["jaanu"],  prefixes=["+", ".", "/", "-", "?", "","$","#","&"]))
 async def chat(app :app, message):
     
     try:
