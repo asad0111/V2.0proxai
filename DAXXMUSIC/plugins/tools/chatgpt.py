@@ -12,7 +12,7 @@ openai.api_key = "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"
 
 
 
-@app.on_message(filters.command(["chatgpt","ai","ask"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
+@app.on_message(filters.command(["chatgpt","janu","babu","ai","ask","yumi"],  prefixes=["+", ".", "/", "-", "?", "", "$","#","&"]))
 async def chat(app :app, message):
     
     try:
@@ -20,7 +20,7 @@ async def chat(app :app, message):
         await app.send_chat_action(message.chat.id, ChatAction.TYPING)
         if len(message.command) < 2:
             await message.reply_text(
-            "**ʜᴇʟʟᴏ sɪʀ**\n**ᴇxᴀᴍᴘʟᴇ:-**`.ask How to set girlfriend ?`")
+            "**ʜᴇʟʟᴏ sɪʀ**\n**ᴇxᴀᴍᴘʟᴇ:-**` yumi How to set girlfriend ?`")
         else:
             a = message.text.split(' ', 1)[1]
             MODEL = "gpt-3.5-turbo"
@@ -36,7 +36,7 @@ async def chat(app :app, message):
 
 
 
-@app.on_message(filters.command(["assis"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
+@app.on_message(filters.command(["jaanu"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
 async def chat(app :app, message):
     
     try:
@@ -44,7 +44,7 @@ async def chat(app :app, message):
         await app.send_chat_action(message.chat.id, ChatAction.TYPING)
         if len(message.command) < 2:
             await message.reply_text(
-            "**ʜᴇʟʟᴏ sɪʀ**\n**ᴇxᴀᴍᴘʟᴇ:-**`.assis How to set girlfriend ?`")
+            "**ʜᴇʟʟᴏ sɪʀ**\n**ᴇxᴀᴍᴘʟᴇ:-**` jaanu How to set girlfriend ?`")
         else:
             a = message.text.split(' ', 1)[1]
             MODEL = "gpt-3.5-turbo"
