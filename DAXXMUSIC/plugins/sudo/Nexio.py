@@ -37,12 +37,13 @@ strict_txt = [
 
 
  
-ban = ["ban","boom"]
-unban = ["unban",]
-mute = ["mute","silent","shut"]
-unmute = ["unmute","speak","free"]
-kick = ["kick", "out","nikaal","nikal"]
-promote = ["promote","adminship"]
+ban = ["ban","boom","aukaat"]
+unban = ["unban","aazad"]
+mute = ["mute","silent","shut","chup"]
+unmute = ["unmute","speak","free","bolne"]
+kick = ["kick", "out","nikaal","nikal","gand"]
+promote = ["promote","adminship","shabashi"]
+fullpromote = ["fullpromote","fulladmin"]
 demote = ["demote","lelo"]
 group = ["group"]
 channel = ["channel"]
@@ -52,7 +53,7 @@ channel = ["channel"]
 # ========================================= #
 
 
-@app.on_message(filters.command(["umi","umiko"], prefixes=["y", "Y"]) & admin_filter)
+@app.on_message(filters.command(["aby","aby"], prefixes=["b", "B"]) & admin_filter)
 async def restriction_app(app :app, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
@@ -70,13 +71,13 @@ async def restriction_app(app :app, message):
                     await message.reply(random.choice(strict_txt))          
                 else:
                     await app.ban_chat_member(chat_id, user_id)
-                    await message.reply("OK, Ban kar diya madrchod ko sala Chutiya tha !")
+                    await message.reply("OK Baby 😘😘, Maa chodh di madrchod ki sala Chutiya tha 😝!")
                     
         for unbanned in data:
             print(f"present {unbanned}")
             if unbanned in unban:
                 await app.unban_chat_member(chat_id, user_id)
-                await message.reply(f"Ok, aap bolte hai to unban kar diya") 
+                await message.reply(f"Ok Baby 😘😘, aap bolte hai to unban kar diya 🥰") 
                 
         for kicked in data:
             print(f"present {kicked}")
@@ -87,7 +88,7 @@ async def restriction_app(app :app, message):
                 else:
                     await app.ban_chat_member(chat_id, user_id)
                     await app.unban_chat_member(chat_id, user_id)
-                    await message.reply("get lost! bhga diya bhosdi wale ko") 
+                    await message.reply("Ok Baby 😘😘! bhag bhosdike💀") 
                     
         for muted in data:
             print(f"present {muted}") 
@@ -98,14 +99,14 @@ async def restriction_app(app :app, message):
                 else:
                     permissions = ChatPermissions(can_send_messages=False)
                     await message.chat.restrict_member(user_id, permissions)
-                    await message.reply(f"muted successfully! Disgusting people.") 
+                    await message.reply(f"Ok Baby 😘😘, muted successfully! Chup Baith Bhadwe🤫.") 
                     
         for unmuted in data:
             print(f"present {unmuted}")            
             if unmuted in unmute:
                 permissions = ChatPermissions(can_send_messages=True)
                 await message.chat.restrict_member(user_id, permissions)
-                await message.reply(f"Huh, OK, sir!")   
+                await message.reply(f"Huh, OK,🙂 Bolna madrchod!")   
 
 
         for promoted in data:
@@ -122,7 +123,7 @@ async def restriction_app(app :app, message):
                     can_manage_video_chats=True,
                        )
                      )
-                await message.reply("promoted !")
+                await message.reply("ok Baby 😘😘, promoted 🎉 !")
 
         for demoted in data:
             print(f"present {demoted}")            
@@ -138,6 +139,22 @@ async def restriction_app(app :app, message):
                     can_manage_video_chats=False,
                        )
                      )
-                await message.reply("demoted !")
+                await message.reply("Ok Baby 😘😘, demoted 👎!")
 
 
+#async def your_function():
+    for fullpromoted in data:
+        print(f"present {fullpromoted}")            
+        if fullpromoted in fullpromote:
+            await app.promote_chat_member(chat_id, user_id, privileges=ChatPrivileges(
+                can_change_info=True,
+                can_invite_users=True,
+                can_delete_messages=True,
+                can_restrict_members=True,
+                can_pin_messages=True,
+                can_promote_members=True,
+                can_manage_chat=True,
+                can_manage_video_chats=True,
+               )
+             )
+            await message.reply("Ok Baby 😘😘, fullpromoted !")
